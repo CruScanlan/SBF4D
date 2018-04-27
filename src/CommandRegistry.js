@@ -156,6 +156,17 @@ class CommandRegistry {
         if(this.commands.find(cnd => cnd.name === command.name)) throw new Error(`Command ${command.name} is already registered`);
         let group = this.commandGroups.find(group => group.id === groupID);
         if(!group) throw new Error(`Group ${command.groupID} is not registered`);
+
+        let allExistingAliases = this.commands.map(cmd => {return cmd.aliases});
+        for(let i=0; i<allExistingAliases.length; i++) {
+            for(let j=0; j<allExistingAliases[i].length; j++) {
+                let isDuplicate = command.aliases.find(cmd => {
+                    return cmd === allExistingAliases[i][j];
+                });
+                if(isDuplicate) throw new Error(`command alias ${allExistingAliases[i][j]} from ${command.name} already exists`);
+            }
+        }
+
         command.group = group;
         command.commandPath = filePath;
         this.commands.set(command.name, command);

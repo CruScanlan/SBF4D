@@ -1,5 +1,9 @@
 class Command {
     constructor(client, options) {
+        /**
+         * Validate that the options passed in are correct
+         */
+        this.validateCommandOptions(options);
 
         /**
          * The client for the command
@@ -75,16 +79,37 @@ class Command {
      */
     throttle(userID) {
         let throttle = this.throttles.get(userID);
-        if(!throttle) {
-            throttle = {
-                start: Date.now(),
-                timeout: setTimeout(()=> {
-                    this.throttles.delete(userID);
-                }, this.throttling)
-            };
-            this.throttles.set(userID, throttle);
+        if(throttle) return throttle;
+        if(this.throttling < 1) return null;
+        throttle = {
+            start: Date.now(),
+            timeout: setTimeout(()=> {
+                this.throttles.delete(userID);
+            }, this.throttling)
+        };
+        this.throttles.set(userID, throttle);
+    }
+
+    /**
+     * Validates options passed in from a sub class command
+     * @param options
+     */
+    validateCommandOptions(options) {
+        if(!options) throw new Error(`options were not defined`);
+        if(typeof options !== 'object') throw new TypeError(`options is not of type object`);
+        if(!options.name) throw new Error(`options.name was not defined`);
+        if(typeof options.name !== 'string') throw new TypeError(`options.name is not of type string`);
+        if(!options.group) throw new Error(`options.group was not defined`);
+        if(typeof options.group !== 'string') throw new TypeError(`options.group is not of type string`);
+        if(options.aliases) {
+            if(!Array.isArray(options.aliases)) throw new TypeError(`options.aliases is not of type array`);
+            for(let i=0; i<options.aliases.length; i++) {
+                if(typeof options.aliases[i] !== 'string') throw new TypeError(`options.aliases, element ${i+1} is not of type string`);
+            }
         }
-        return throttle;
+        if(options.throttling) {
+            if(typeof options.throttling !== 'number') throw new TypeError(`options.throttling is not of type number`);
+        }
     }
 }
 
