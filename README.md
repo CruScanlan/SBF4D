@@ -6,11 +6,9 @@ Simple Bot Framework For Discord
 $ npm install SBF4D --save
 ```
 
-#Usage
+# Usage
 
-###Start Bot
-
-
+### Start Bot
 
 **./bot.js**
 ```javascript
