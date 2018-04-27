@@ -1,4 +1,10 @@
+/**
+ * Dispatches messages out to the appropriate command
+ */
 class CommandDispatcher {
+    /**
+     * @param {SBF4DClient} client
+     */
     constructor(client) {
 
         /**
@@ -27,8 +33,7 @@ class CommandDispatcher {
 
     /**
      * Handles new messages
-     * @param msg
-     * @private
+     * @param {String} msg
      */
     handleMessage(msg) {
         if(!this.shouldHandleMessage(msg)) return;
@@ -44,7 +49,7 @@ class CommandDispatcher {
 
     /**
      * Should a message be handled?
-     * @param msg
+     * @param {String} msg
      * @returns {boolean}
      */
     shouldHandleMessage(msg) {
@@ -55,7 +60,7 @@ class CommandDispatcher {
 
     /**
      * Parses msg to command and args
-     * @param msg
+     * @param {String} msg
      * @returns {Object<String, String>}
      */
     parseMessage(msg) {
@@ -67,7 +72,7 @@ class CommandDispatcher {
 
     /**
      * Gets a command object from text
-     * @param command
+     * @param {String} command
      * @returns {Command || null}
      */
     getCommand(command) {

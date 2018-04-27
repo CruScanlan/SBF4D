@@ -1,4 +1,11 @@
+/**
+ * The base command class
+ */
 class Command {
+    /**
+     * @param {SBF4DClient} client
+     * @param {Object} options
+     */
     constructor(client, options) {
         /**
          * Validate that the options passed in are correct
@@ -74,7 +81,7 @@ class Command {
 
     /**
      * Returns an existing throttle object for a userID or creates a new one and returns it
-     * @param userID
+     * @param {String} userID
      * @returns {Object}
      */
     throttle(userID) {
@@ -92,7 +99,7 @@ class Command {
 
     /**
      * Validates options passed in from a sub class command
-     * @param options
+     * @param {Object} options
      */
     validateCommandOptions(options) {
         if(!options) throw new Error(`options were not defined`);

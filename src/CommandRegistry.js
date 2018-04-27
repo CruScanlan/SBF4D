@@ -4,7 +4,15 @@ let path = require('path');
 
 const CommandGroup = require('./CommandGroup');
 
+/**
+ * Registers all commands and makes them available to the command dispatcher
+ */
 class CommandRegistry {
+    /**
+     * @constructor
+     * @param {SBF4DClient} client
+     * @param {Object} options
+     */
     constructor(client, options) {
         /**
          * Error checking
@@ -16,7 +24,7 @@ class CommandRegistry {
         /**
          * The client for the registry
          * @name CommandRegistry#client
-         * @type {client}
+         * @type {SBF4DClient}
          * @readonly
          */
         Object.defineProperty(this, 'client', {value : client});
@@ -78,7 +86,7 @@ class CommandRegistry {
 
     /**
      * Reloads a command in the registry and module memory
-     * @param command
+     * @param {Command} command
      */
     reloadCommand(command) {
         let oldCommand = Object.assign({}, command);
@@ -88,7 +96,7 @@ class CommandRegistry {
 
     /**
      * Unloads a command from the registry and module memory
-     * @param command
+     * @param {Command} command
      */
     unloadCommand(command) {
         if(!command.commandPath) throw new Error(`command.commandPath is not defined`);
@@ -141,8 +149,8 @@ class CommandRegistry {
 
     /**
      * Registers a single command
-     * @param groupID
-     * @param filePath
+     * @param {String} groupID
+     * @param {String} filePath
      * @private
      */
     _registerCommand(groupID, filePath) {

@@ -2,7 +2,13 @@ const discord = require('discord.js');
 const CommandRegistry = require('./CommandRegistry');
 const CommandDispatcher = require('./CommandDispatcher');
 
+/**
+ * The bot client
+ */
 class SBF4DClient extends discord.Client {
+    /**
+     * @param {Object} options
+     */
     constructor(options) {
         /**
          * Error checking

@@ -1,6 +1,14 @@
 const discord = require('discord.js');
 
+/**
+ * A group of commands
+ */
 class CommandGroup {
+    /**
+     * @param {SBF4DClient} client
+     * @param {String} id
+     * @param {String} name
+     */
     constructor(client, id, name) {
         if(!client) throw new Error('client is not defined');
         if(!id) throw new Error('id is not defined');
@@ -46,7 +54,7 @@ class CommandGroup {
 
     /**
      * Renames the group
-     * @param name
+     * @param {String} name
      * @returns {CommandGroup}
      */
     rename(name) {
