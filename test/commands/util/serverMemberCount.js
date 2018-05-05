@@ -1,4 +1,4 @@
-let {Command} = require('../../../src/index');
+const {Command} = require('../../../src/index');
 
 module.exports = class ServerMemberCountCommand extends Command {
     constructor(client) {

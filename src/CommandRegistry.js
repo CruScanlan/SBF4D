@@ -1,6 +1,6 @@
 const discord = require('discord.js');
-let fs = require('fs');
-let path = require('path');
+const fs = require('fs');
+const path = require('path');
 
 const CommandGroup = require('./CommandGroup');
 

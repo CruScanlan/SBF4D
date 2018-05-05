@@ -3,10 +3,12 @@ Simple Bot Framework For Discord
 
 # Installation
 ```bash
-$ npm install SBF4D --save
+$ npm install sbf4d --save
 ```
 
 # Usage
+
+This module extends the [discord.js module](https://github.com/discordjs/discord.js) so all discord.js methods found [here](https://discord.js.org/#/docs/main/stable/general/welcome) can be used.
 
 ### Start Bot
 
