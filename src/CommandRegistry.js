@@ -74,7 +74,7 @@ class CommandRegistry {
 
     /**
      * Registers all the groups and command path
-     * @param options
+     * @param {Object} options
      * @returns {CommandRegistry}
      */
     _register(options) {
@@ -100,14 +100,14 @@ class CommandRegistry {
      */
     unloadCommand(command) {
         if(!command.commandPath) throw new Error(`command.commandPath is not defined`);
-        let module = require.resolve(command.commandPath);
-        delete require.cache[module];
+        let commandModule = require.resolve(command.commandPath);
+        delete require.cache[commandModule];
         this._unregisterCommand(command);
     }
 
     /**
      * Removes a command from the registry
-     * @param command
+     * @param {Command} command
      * @private
      */
     _unregisterCommand(command) {
@@ -118,8 +118,8 @@ class CommandRegistry {
 
     /**
      * Register the commands folder file path
-     * @param path
-     * @returns {path}
+     * @param {String} path
+     * @returns {String} path
      * @private
      */
     _registerCommandPath(path) {
@@ -183,7 +183,7 @@ class CommandRegistry {
 
     /**
      * Registers multiple command groups
-     * @param groups
+     * @param {Array<Object>} groups
      * @private
      */
     _registerCommandGroups(groups) {
@@ -194,8 +194,8 @@ class CommandRegistry {
 
     /**
      * Registers a single command group
-     * @param id
-     * @param name
+     * @param {String} id
+     * @param {String} name
      * @returns {CommandGroup}
      * @private
      */
@@ -209,7 +209,7 @@ class CommandRegistry {
 
     /**
      * Gets the directory for a command group
-     * @param groupID
+     * @param {String} groupID
      * @returns {String}
      * @private
      */

@@ -45,6 +45,10 @@ class SBF4DClient extends discord.Client {
         this.owner = options.owner;
     }
 
+    /**
+     * Returns the command prefix
+     * @returns {String}
+     */
     get commandPrefix() {
         return this._commandPrefix;
     }

@@ -61,7 +61,12 @@ class Command {
         this.throttles = new Map();
     }
 
-    run(msg, args, client) {
+    /**
+     * Method is called when a command is executed
+     * @param {String} msg
+     * @param {Array<String>} args
+     */
+    run(msg, args) {
         throw new Error(`Command does not have a run method`);
     }
 
