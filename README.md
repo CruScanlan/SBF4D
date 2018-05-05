@@ -12,7 +12,7 @@ $ npm install SBF4D --save
 
 **./bot.js**
 ```javascript
-const sbf4d = require('SBF4D');
+const sbf4d = require('sbf4d');
 const path = require('path');
 
 let bot = new sbf4d.Client({
@@ -37,7 +37,7 @@ All commands are placed inside the root commands folder and then under the name 
 
 **./commands/test/foo.js**
 ```javascript
-let {Command} = require('SBF4D');
+let {Command} = require('sbf4d');
 
 module.exports = class FooCommand extends Command {
     constructor(client) {
