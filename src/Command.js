@@ -63,7 +63,7 @@ class Command {
 
     /**
      * Method is called when a command is executed
-     * @param {String} msg
+     * @param {Object} msg
      * @param {Array<String>} args
      */
     run(msg, args) {

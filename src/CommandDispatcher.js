@@ -33,7 +33,7 @@ class CommandDispatcher {
 
     /**
      * Handles new messages
-     * @param {String} msg
+     * @param {Object} msg
      */
     handleMessage(msg) {
         if(!this.shouldHandleMessage(msg)) return;
@@ -49,7 +49,7 @@ class CommandDispatcher {
 
     /**
      * Should a message be handled?
-     * @param {String} msg
+     * @param {Object} msg
      * @returns {boolean}
      */
     shouldHandleMessage(msg) {
@@ -60,7 +60,7 @@ class CommandDispatcher {
 
     /**
      * Parses msg to command and args
-     * @param {String} msg
+     * @param {Object} msg
      * @returns {Object<String, String>}
      */
     parseMessage(msg) {
