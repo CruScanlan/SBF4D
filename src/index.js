@@ -1,5 +1,5 @@
 module.exports = {
-    Client: require('./client'),
+    Client: require('./Client'),
     CommandRegistry: require('./CommandRegistry'),
     CommandDispatcher: require('./CommandDispatcher'),
     Command: require('./Command')

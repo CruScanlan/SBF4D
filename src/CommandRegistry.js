@@ -141,7 +141,7 @@ class CommandRegistry {
                 let fileSplit = groupDirectoryFiles[j].split('.');
                 let fileExt = fileSplit[fileSplit.length-1];
                 if(fileExt !== 'js') continue; //exclude any file without a .js extension
-                this._registerCommand(commandGroups[i].id, `${groupDirectoryPath}\\${groupDirectoryFiles[j]}`); //register file as a command
+                this._registerCommand(commandGroups[i].id, `${groupDirectoryPath}/${groupDirectoryFiles[j]}`); //register file as a command
             }
         }
         return this;

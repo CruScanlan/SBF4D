@@ -45,6 +45,7 @@ class CommandDispatcher {
         if(throttle) return msg.reply(`You cannot use this command for another ${((throttle.start+command.throttling-Date.now())/1000).toFixed(1)} seconds.`);
         command.run(msg, msgParsed.args);
         command.throttle(msgAuthorID);
+
     }
 
     /**

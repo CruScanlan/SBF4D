@@ -52,6 +52,7 @@ class SBF4DClient extends discord.Client {
     get commandPrefix() {
         return this._commandPrefix;
     }
+
 }
 
 module.exports = SBF4DClient;
